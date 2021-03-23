@@ -1,0 +1,8 @@
+[package]
+name = "Row-Echelon-Form"
+version = "0.1"
+lean_version = "leanprover-community/lean:3.28.0"
+path = "src"
+
+[dependencies]
+mathlib = {git = "https://github.com/leanprover-community/mathlib", rev = "9f56a0bf9c8a50ff12701922a97e238cc668413c"}
