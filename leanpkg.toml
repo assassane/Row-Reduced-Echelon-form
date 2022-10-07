@@ -1,5 +1,5 @@
 [package]
-name = "RREF"
+name = "Row-Reduced-Echelon-form"
 version = "0.1"
 lean_version = "leanprover-community/lean:3.48.0"
 path = "src"
