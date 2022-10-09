@@ -1461,7 +1461,19 @@ rw [left_row_add_liner_seq_eq_row_add_linear_seq_left,sub_left_le_eq_lam],simp [
 exact (hh _ hi _).symm
 },
 { rw [left_row_add_liner_seq_eq_row_add_linear_seq_left,sub_left_le_eq_lam],simp,simp at hi,
-sorry} --TODO
+have := elimi_4'' M ⟨k,hkm⟩ h,simp at this,simp [this],clear this,split_ifs,
+{ refl},
+{ exfalso,rw [h_3] at hi,exact lt_irrefl _ hi},
+{ exfalso, have hhh:=lt_first_nonnul_col M ⟨k,hkm⟩ h (fin.cast_le hkn j) _,
+  rw [h_2] at hhh,exact lt_irrefl _ hhh,
+  intros j' hj' i' hi',have hh' := hh i' hi' ⟨j',_⟩,
+  simp [sub_left_le_eq] at hh',exact hh',simp [fin.le_iff_coe_le_coe] at hj',
+  exact lt_of_le_of_lt hj' j.property},
+{ exfalso,rw [h_3] at hi,exact lt_irrefl _ hi},
+{ exfalso, have := (first_nonnul_is_nonnul M ⟨k,hkm⟩ h).1,
+  rw [←h_4] at this,exact not_le_of_lt hi this},
+{ have := hh _ (first_nonnul_is_nonnul M ⟨k,hkm⟩ h).1 j,rw [sub_left_le_eq] at this,simp [this],
+exact (sub_left_le_eq _ _ _ _ _).symm}}
 end
 
 
